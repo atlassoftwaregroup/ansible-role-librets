@@ -1,10 +1,10 @@
 ---
 # tasks file for librets
 - name: download librets
-   command: "wget https://github.com/NationalAssociationOfRealtors/libRETS/archive/1.6.1.tar.gz"
-   args:
-     chdir: "/home/{{ owner }}"
-     creates: "1.6.1.tar.gz"
+  command: "wget https://github.com/NationalAssociationOfRealtors/libRETS/archive/1.6.1.tar.gz"
+  args:
+    chdir: "/home/{{ owner }}"
+    creates: "1.6.1.tar.gz"
 - name: untar librets
   unarchive:
     src: "/home/{{ owner }}/1.6.1.tar.gz"
