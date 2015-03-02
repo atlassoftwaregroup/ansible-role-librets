@@ -1,0 +1,28 @@
+---
+# tasks file for librets
+- name: download librets
+   command: "wget https://github.com/NationalAssociationOfRealtors/libRETS/archive/1.6.1.tar.gz"
+   args:
+     chdir: "/home/{{ owner }}"
+     creates: "1.6.1.tar.gz"
+- name: untar librets
+  unarchive:
+    src: "/home/{{ owner }}/1.6.1.tar.gz"
+    dest: "/home/{{ owner }}"
+    copy: no
+- name: autogen 
+  command: "./autogen.sh"
+  args:
+    chdir: "/home/{{ owner }}/libRETS-1.6.1"
+- name: configure
+  command: "./configure --disable-perl --disable-ruby --disable-java --disable-dotnet --disable-php --enable-shared_dependencies"
+  args:
+    chdir: "/home/{{ owner }}/libRETS-1.6.1"
+- name: make
+  command: "make"
+  args:
+    chdir: "/home/{{ owner }}/libRETS-1.6.1"
+- name: make install
+  command: "make install"
+  args:
+    chdir: "/home/{{ owner }}/libRETS-1.6.1"
