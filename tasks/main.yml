@@ -15,22 +15,18 @@
   args:
     chdir: "/home/{{ owner }}/libRETS-1.6.1"
     creates: "1.6.1.tar.gz"
-- name: untar librets
 - name: configure
   command: "./configure --disable-perl --disable-ruby --disable-java --disable-dotnet --disable-php --enable-shared_dependencies"
   args:
     chdir: "/home/{{ owner }}/libRETS-1.6.1"
     creates: "1.6.1.tar.gz"
-- name: untar librets
 - name: make
   command: "make"
   args:
     chdir: "/home/{{ owner }}/libRETS-1.6.1"
     creates: "1.6.1.tar.gz"
-- name: untar librets
 - name: make install
   command: "make install"
   args:
     chdir: "/home/{{ owner }}/libRETS-1.6.1"
     creates: "1.6.1.tar.gz"
-- name: untar librets
